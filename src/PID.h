@@ -17,6 +17,13 @@ public:
   double Ki;
   double Kd;
 
+  int step;
+
+  double minError;
+  double maxError;
+
+  bool twiddle;
+
   /*
   * Constructor
   */
@@ -41,6 +48,7 @@ public:
   * Calculate the total PID error.
   */
   double TotalError();
+  double Signal();
 };
 
 #endif /* PID_H */
