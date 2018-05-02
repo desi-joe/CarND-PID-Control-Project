@@ -11,7 +11,6 @@ PID::PID() {}
 PID::~PID() {}
 
 void PID::Init(double Kp, double Ki, double Kd) {
-	//std::cout << "init............";
 
 	PID::Kp = Kp;
 	PID::Ki = Ki;
@@ -27,7 +26,6 @@ void PID::Init(double Kp, double Ki, double Kd) {
 
 void PID::UpdateError(double cte) {
 
-
 	if(step == 1)
 		p_error = cte;
 
@@ -42,16 +40,10 @@ void PID::UpdateError(double cte) {
   	if ( cte < minError ) {
     	minError = cte;
   	}
-
-	std::cout << "minError............" << minError;
-	std::cout << "maxError............" << maxError;
-
 	++step;	
 }
 
-double PID::TotalError() {
-	std::cout << "TotalError..........." << -Kp * p_error - Kd * d_error - Ki * i_error;
-	
+double PID::TotalError() {	
 	return Kp * p_error + Kd * d_error + Ki * i_error;
 }
 
